@@ -1,31 +1,32 @@
 const { Router } = require("express");
 const adminRouter = Router();
+const { adminModel } = require("../db");
 
-userRouter.post("/signup", function (req, res) {
+adminRouter.post("/signup", function (req, res) {
     res.json({
         message: "sigup endpoint"
     })
 })
 
-userRouter.post("/signin", function (req, res) {
+adminRouter.post("/signin", function (req, res) {
     res.json({
         message: "signin endpoint"
     })
 })
 
-userRouter.post("/course", function (req, res) {
+adminRouter.post("/course", function (req, res) {
     res.json({
         message: "signin endpoint"
     })
 })
 
-userRouter.put("/course", function (req, res) {
+adminRouter.put("/course", function (req, res) {
     res.json({
         message: "signin endpoint"
     })
 })
 
-userRouter.get("/course/bulk", function (req, res) {
+adminRouter.get("/course/bulk", function (req, res) {
     res.json({
         message: "signin endpoint"
     })
