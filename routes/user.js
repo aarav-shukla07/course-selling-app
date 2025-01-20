@@ -34,14 +34,29 @@ userRouter.post("/signup", async function (req, res) {
 userRouter.post("/signin", async function (req, res) {
     const { email, password } = req.body;
 
-    const user = await userModel.find({
+    //TODO: ideally the password should be hashed, and hence you can't compare the user provided password and the database password 
+    const user = await userModel.findOne({
         email: email,
         password: password
     });
 
-    res.json({
-        message: "signin endpoint"
-    })
+    if (user) {
+        const token = jwt.sign ({
+            id: user._id
+        }, JWT_USER_PASSWORD)
+        //Do cookie logic here
+
+        res.json({
+            token :token
+        })
+
+    }else{
+        res.status(403).json({
+            message: "Incorrect Credentials"
+        })
+    }
+
+    
 })
 
 userRouter.post("/purchases", function (req, res) {
