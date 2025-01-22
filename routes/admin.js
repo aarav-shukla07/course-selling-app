@@ -3,7 +3,6 @@ const adminRouter = Router();
 const { adminModel } = require("../db");
 
 const jwt = require("jsonwebtoken");
-const JWT_ADMIN_PASSWORD = "diugdoidsc";
 
 adminRouter.post("/signup", async function (req, res) {
 
